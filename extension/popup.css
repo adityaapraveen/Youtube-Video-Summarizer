@@ -1,0 +1,307 @@
+:root {
+    --button-color: #ff3718;
+    /* Purple button color */
+}
+
+body {
+    max-width: 700px;
+    width: max-content;
+    background-color: #333;
+    /* Dark background color */
+    color: white;
+    /* White text color */
+    
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+    margin-top: 30px;
+    background-color: rgb(36, 36, 36);
+    border-radius: 20px;
+    padding: 30px;
+}
+#summarise{
+    margin-top: 50px;
+}
+
+#output{
+    background-color: rgb(36, 36, 36);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 50px;
+    line-height: 1.5;
+    display: none;
+}
+#answers{
+    background-color: rgb(36, 36, 36);
+    border-radius: 20px;
+    padding: 30px;
+    line-height: 1.5;
+    display: none;
+}
+.button {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor:pointer;
+    background-color: var(--button-color);
+    /* Use the CSS variable */
+    transition: all 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    display: flex;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 13px;
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+}
+
+.button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, var(--button-color) 20%, transparent 30%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, var(--button-color) 15%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+        10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
+    }
+
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
+    }
+
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, var(--button-color) 15%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%),
+        radial-gradient(circle, var(--button-color) 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
+    }
+
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+p {
+    font-size: medium;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    /* Align items vertically */
+
+    gap: 7px;
+    position: relative;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    /* Add margin bottom to create space */
+    max-width: calc(100% - 20px);
+}
+
+.container .label {
+    font-size: 15px;
+    padding-left: 10px;
+    position: absolute;
+    top: 13px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.input {
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    /* margin-left: 20px; */
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
+    
+}
+
+.input:focus {
+    border: 2px solid transparent;
+    color: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.container .input:valid~.label,
+.container .input:focus~.label {
+    transition: 0.3s;
+    padding-left: 2px;
+    transform: translateY(-35px);
+}
+
+.container .input:valid,
+.container .input:focus {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4),
+        inset 3px 3px 10px rgba(0, 0, 0, 1),
+        inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.prompt {
+    /* display: flex; */
+
+    align-items: center;
+    /* Align items vertically */
+    justify-content:space-between;
+    /* Add space between items */
+    margin-top: 70px;
+    /* Move prompt section down */
+}
+.askbutton{
+    margin-right: 100px;
+}
+
+@media screen and (min-height: 1000px) {
+    .prompt {
+        display: flex;
+        align-items: center;
+        /* Align items vertically */
+        justify-content: space-between;
+        /* Add space between items */
+        margin-top: 30px;
+        /* Move prompt section down */
+    }
+} 
+
+@media screen and (max-width: 844px),
+(max-height: 399px) {
+    .prompt {
+        display:none;
+        align-items: center;
+        /* Align items vertically */
+        justify-content: center;
+        /* Center items horizontally */
+        margin-top: 20px;
+        /* Move prompt section down */
+        margin-bottom: 20px;
+        /* Add margin bottom */
+    }
+
+    .container {
+        margin-right: 20px;
+        /* Add margin right */
+    }
+
+    .input {
+        width: 350px;
+        /* Set width of input field to 350px */
+    }
+}
+
+@keyframes promptSpacing {
+    from {
+        margin-bottom: 20px;
+        /* Initial margin */
+    }
+
+    to {
+        margin-bottom: 0;
+        /* Margin when expanded */
+    }
+}
+
+/* Define scrollbar width and color */
+body::-webkit-scrollbar {
+    width: 8px;
+    /* Adjust scrollbar width as needed */
+}
+
+/* Track (background of scrollbar) */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Light grey */
+}
+
+/* Handle (thumb) */
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Grey */
+    border-radius: 20px;
+    /* Round corners */
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Dark grey */
+}
+
+/* Define scrollbar corner */
+body::-webkit-scrollbar-corner {
+    background: transparent;
+    /* Transparent */
+}

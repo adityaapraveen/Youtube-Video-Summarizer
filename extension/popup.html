@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YouTube Transcript Summariser</title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Donegal+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400    ;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TalkTube: Youtube Summariser</h1>
+    <button id="summarise" class="button">Summarize</button>
+    <br />
+    <p id="output"></p>
+
+    <div class="prompt">
+        <div class="container">
+            <input required="" type="text" name="text" class="input" id="question">
+            <label class="label">Ask a Question:</label>
+        </div>
+        <div class="askbutton">
+            <button id="ask" class="button"><i class="fa-solid fa-circle-question"></i>Ask</button>
+        </div>
+    </div>
+    <div id="answers"></div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
